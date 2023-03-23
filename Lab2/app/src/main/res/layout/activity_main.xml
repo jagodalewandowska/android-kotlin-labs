@@ -4,150 +4,87 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
     tools:context=".MainActivity">
 
-    <ScrollView
+    <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:layout_weight="0.5"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/TextViewSen"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/sensorList"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:text="Lista sensorów: "
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/politechnika"/>
-
-            <TextView
-                android:id="@+id/sensorList"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/TextViewSen"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="20dp"
-                android:text=""
-                android:textSize="12sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/TextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/sensorList"
-                    android:layout_marginLeft="10dp"
-                    android:text="Azymut wynosi: "
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/politechnika"/>
-
-                <TextView
-                    android:id="@+id/azimuth"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_below="@id/sensorList"
-                    android:textSize="20sp"
-                    android:text="" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/mmmm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/sensorList"
-                    android:layout_marginLeft="10dp"
-                    android:text="mGeoMagnetic[0] = "
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/politechnika"/>
-
-                <TextView
-                    android:id="@+id/mx"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/sensorList"
-                    android:layout_marginLeft="10dp"
-                    android:text=""
-                    android:textSize="20sp"/>
+            android:background="@android:color/transparent"
+            android:text="@string/arrowleft"
+            android:textColor="#A1887F"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:text="@string/linearlayout"
+            android:textSize="30sp" />
 
-                <TextView
-                    android:id="@+id/mmm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/sensorList"
-                    android:layout_marginLeft="10dp"
-                    android:text="mGeoMagnetic[1] = "
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/politechnika"/>
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="@string/arrowright"
+            android:textColor="@color/politechnika"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+    </LinearLayout>
 
-                <TextView
-                    android:id="@+id/my"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/sensorList"
-                    android:layout_marginLeft="10dp"
-                    android:text=""
-                    android:textSize="20sp"/>
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_below="@+id/linearLayout2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout2">
 
+        <Button
+            android:id="@+id/button"
+            android:layout_width="265dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#830E21"
+            android:text="@string/start_service" />
 
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="265dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#830E21"
+            android:text="@string/pause_service" />
 
-                <TextView
-                    android:id="@+id/mm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/sensorList"
-                    android:layout_marginLeft="10dp"
-                    android:text="mGeoMagnetic[2] = "
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/politechnika"/>
-
-                <TextView
-                    android:id="@+id/mz"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/sensorList"
-                    android:layout_marginLeft="10dp"
-                    android:text=""
-                    android:textSize="20sp"/>
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="265dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#830E21"
+            android:text="@string/stop_service" />
 
 
-            </LinearLayout>
+    </LinearLayout>
 
-        </LinearLayout>
-    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
