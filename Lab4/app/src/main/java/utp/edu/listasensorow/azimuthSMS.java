@@ -41,11 +41,14 @@ public class azimuthSMS extends AppCompatActivity implements SensorEventListener
     Button sendSMS;
     String azimuthToSend;
     private static final int PERMISSION_REQUEST_CODE = 1;
-
+    private static azimuthSMS ins;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ins = this;
+
+
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
 
@@ -120,4 +123,18 @@ public class azimuthSMS extends AppCompatActivity implements SensorEventListener
     public void onAccuracyChanged(Sensor sensor, int i) {
 
     }
+
+    public static azimuthSMS getInstance(){
+        return ins;
+    }
+
+    public void updateTheTextView(final String t) {
+        azimuthSMS.this.runOnUiThread(new Runnable() {
+            public void run() {
+                TextView textSMS = (TextView) findViewById(R.id.messages);
+                textSMS.append(t + "\n\n");
+            }
+        });
+    }
+
 }

@@ -11,9 +11,10 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class SMSReceiver extends BroadcastReceiver {
     private static final String SMS_RECEIVED = "android.provider.Telephony.SMS_RECEIVED";
-    private static final String TAG = "SMSReceiver";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -25,12 +26,9 @@ public class SMSReceiver extends BroadcastReceiver {
                 for (int i = 0; i < pdus.length; i++) {
                     messages[i] = SmsMessage.createFromPdu((byte[])pdus[i]);
                 }
-                if (messages.length > -1) {
-                    Log.i(TAG, "Message recieved: " + messages[0].getMessageBody());
-                }
-                String lastMessage = messages[0].getMessageBody();
-                Toast.makeText(context, lastMessage, Toast.LENGTH_LONG).show();
+                azimuthSMS.getInstance().updateTheTextView(messages[0].getOriginatingAddress() + " - " + messages[0].getMessageBody());
             }
         }
     }
+
 }
