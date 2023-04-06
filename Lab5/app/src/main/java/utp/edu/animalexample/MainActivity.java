@@ -23,16 +23,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         Animal[] possibleAnimals = {
-                new Animal("Pies", R.drawable.dog_image);
-        new Animal("Kot", R.drawable.cat_image);
-        new Animal("Słoń", R.drawable.elephant_image);
-        new Animal("Leniwiec", R.drawable.leniwiec);
-        new Animal("Lemur", R.drawable.lemur);
-        new Animal("Lama", R.drawable.lama);
-        new Animal("Hiena", R.drawable.hiena);
-        new Animal("Borsuk", R.drawable.borsuk);
-        new Animal("Koń", R.drawable.kon);
-        };
+                new Animal("Pies", R.drawable.dog_image),
+                new Animal("Kot", R.drawable.cat_image),
+                new Animal("Słoń", R.drawable.elephant_image),
+                new Animal("Leniwiec", R.drawable.leniwiec),
+                new Animal("Lemur", R.drawable.lemur),
+                new Animal("Lama", R.drawable.lama),
+                new Animal("Hiena", R.drawable.hiena),
+                new Animal("Borsuk", R.drawable.borsuk),
+                new Animal("Koń", R.drawable.kon)};
+
+
         List<Animal> animals = new ArrayList<>(100);
         Random random = new Random();
         for (int i = 0; i < 100; i++) {

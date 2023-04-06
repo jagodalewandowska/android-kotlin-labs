@@ -40,7 +40,8 @@ public class AnimalsAdapter extends RecyclerView.Adapter<AnimalsAdapter.AnimalVi
     @NonNull
     @Override
     public AnimalViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_list_item_recycle_animal, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_main, parent, false);
+//        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_list_item_recycle_animal, parent, false);
         AnimalViewHolder viewHolder = new AnimalViewHolder(v);
         viewHolder.animalName = v.findViewById(R.id.animal_name);
         viewHolder.animalImage = v.findViewById(R.id.animal_image);
