@@ -48,9 +48,8 @@ public class AnimalsAdapter extends RecyclerView.Adapter<AnimalsAdapter.AnimalVi
         return viewHolder;
     }
 
-
     @Override
-    public void OnBindViewHolder(@NonNull AnimalViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AnimalViewHolder holder, int position) {
         Animal animal = animals.get(position);
 
         holder.animalName.setText(animal.name);
@@ -100,6 +99,7 @@ public class AnimalsAdapter extends RecyclerView.Adapter<AnimalsAdapter.AnimalVi
             }
         });
     }
+
     @NonNull
     @Override
     public int getItemCount() { return animals.size(); }
