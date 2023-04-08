@@ -1,9 +1,13 @@
 package utp.edu.animalexample;
 
+import static android.graphics.Color.rgb;
+
 import android.annotation.SuppressLint;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -40,8 +44,7 @@ public class AnimalsAdapter extends RecyclerView.Adapter<AnimalsAdapter.AnimalVi
     @NonNull
     @Override
     public AnimalViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_main, parent, false);
-//        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_list_item_recycle_animal, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.animal_activity, parent, false);
         AnimalViewHolder viewHolder = new AnimalViewHolder(v);
         viewHolder.animalName = v.findViewById(R.id.animal_name);
         viewHolder.animalImage = v.findViewById(R.id.animal_image);
@@ -56,11 +59,14 @@ public class AnimalsAdapter extends RecyclerView.Adapter<AnimalsAdapter.AnimalVi
         holder.animalName.setText(animal.name);
         holder.animalImage.setImageResource(animal.image);
 
-        int color = Color.GREEN;
+        int color = Color.rgb(131, 14, 33);
         if (position % 2 == 0) {
-            color = Color.CYAN;
+            color = Color.GRAY;
         }
         holder.animalName.setBackgroundColor(color);
+        holder.animalName.setTextColor(Color.WHITE);
+        holder.animalName.setTextSize(20);
+        holder.animalName.setGravity(Gravity.CENTER_HORIZONTAL);
 
         holder.animalDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,7 +101,7 @@ public class AnimalsAdapter extends RecyclerView.Adapter<AnimalsAdapter.AnimalVi
             @Override
             public boolean onTouch(View v, MotionEvent event){
                 int position = holder.getAdapterPosition();
-                Toast.makeText(v.getContext(), "onTouch-"+animals.get(position).name, Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(), "onTouch - "+animals.get(position).name, Toast.LENGTH_SHORT).show();
                 return false;
             }
         });
