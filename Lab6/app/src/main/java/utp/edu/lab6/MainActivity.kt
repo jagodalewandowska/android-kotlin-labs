@@ -1,38 +1,28 @@
-package utp.edu.lab6.ui.theme
+package utp.edu.lab6
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import utp.edu.lab6.R
-import java.lang.reflect.Modifier
+import utp.edu.lab6.ui.theme.Lab6Theme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_main)
         setContent {
             Lab6Theme {
-                Surface (
+                // A surface container using the 'background' color from the theme
+                Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                    ) {
-                        Greeting("Android")
-                        DefaultPreview()
-                        MainContent()
-                    }
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    Greeting("Android")
                 }
             }
         }
@@ -40,9 +30,13 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting (name: String) {
-    Text(text = "Hello $name!")
+fun Greeting(name: String, modifier: Modifier = Modifier) {
+    Text(
+        text = "Hello $name!",
+        modifier = modifier
+    )
 }
+
 
 @Composable
 fun MainContent(photoList:List<String> = listOf("Anglia", "Francja", "Polska")) {
@@ -68,14 +62,14 @@ fun PhotoRow(photo: String, onItemClick(String) -> Unit = {}) {
         shape = RoundedCornerShape(corner = CornerSize(26.dp)), elevation = 16.dp
     ) {
         Row(verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Start) {
+            horizontalArrangement = Arrangement.Start) {
             Surface(modifier = Modifier
                 .padding(12,dp)
                 .size(100.dp), shape = RectangleShape,
                 elevation = 4.dp {
                     Icon(imageVector = Icnos.Default.AccountBox, contentDescription = "Photo image")
                 }
-            Text(text = photo)
+                        Text(text = photo)
             )
         }
     }
