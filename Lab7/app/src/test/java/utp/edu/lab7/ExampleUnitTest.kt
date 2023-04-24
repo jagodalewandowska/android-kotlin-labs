@@ -1,4 +1,4 @@
-package utp.edu.lab6
+package utp.edu.lab7
 
 import org.junit.Test
 

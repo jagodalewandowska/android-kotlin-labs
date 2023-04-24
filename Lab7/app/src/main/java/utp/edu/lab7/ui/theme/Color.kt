@@ -1,4 +1,4 @@
-package utp.edu.lab6.ui.theme
+package utp.edu.lab7.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

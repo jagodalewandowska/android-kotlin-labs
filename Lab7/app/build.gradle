@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'utp.edu.lab6'
+    namespace 'utp.edu.Lab7'
     compileSdk 33
 
     defaultConfig {
-        applicationId "utp.edu.lab6"
+        applicationId "utp.edu.Lab7"
         minSdk 30
         targetSdk 33
         versionCode 1
