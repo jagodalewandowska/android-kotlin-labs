@@ -4,36 +4,31 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.Magenta
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import utp.edu.lab8.PhotoRow
 import utp.edu.lab8.navigation.PhotoScreens
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(navController: NavController)
 {
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = {
-                    Text("Photos TopAppBar")
-                },
-                colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = Magenta)
-            )
+            TopAppBar(backgroundColor = Color.Magenta, elevation = 5.dp) {
+                Text(text = "Photos")
+            }
         },
     ) { it -> Column (
         modifier = Modifier
             .padding(it)) {
-        MainContent(navController = navController)
+            MainContent(navController = navController)
         }
     }
 }

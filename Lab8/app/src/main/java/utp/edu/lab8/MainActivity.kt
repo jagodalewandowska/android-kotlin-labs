@@ -12,13 +12,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Card
+import androidx.compose.material.Icon
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBox
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Icon
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -49,9 +48,7 @@ fun PhotoRow(photo: String, onItemClick:(String) -> Unit = {}) {
             .clickable {
                 onItemClick(photo)
             },
-        shape = RoundedCornerShape(corner = CornerSize(16.dp)), elevation = CardDefaults.cardElevation(
-            defaultElevation = 6.dp
-        )
+        shape = RoundedCornerShape(corner = CornerSize(16.dp)), elevation = 6.dp
     ) {
         Row(verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Start) {
