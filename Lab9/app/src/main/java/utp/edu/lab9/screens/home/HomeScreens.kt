@@ -12,8 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import utp.edu.lab9.PhotoRow
 import utp.edu.lab9.navigation.PhotoScreens
+import utp.edu.lab9.model.Photo
+import utp.edu.lab9.model.getPhotos
+import utp.edu.lab9.widgets.PhotoRow
 
 @Composable
 fun HomeScreen(navController: NavController)
@@ -34,12 +36,7 @@ fun HomeScreen(navController: NavController)
 
 @Composable
 fun MainContent(navController: NavController,
-                photoList: List<String> = listOf(
-                    "Anglia",
-                    "Niemcy",
-                    "Polska",
-                    "Francja"
-                )
+                photoList: List<Photo> = getPhotos()
 ) {
     Column(modifier = Modifier.padding(12.dp)) {
         LazyColumn {

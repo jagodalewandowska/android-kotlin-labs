@@ -23,12 +23,12 @@ fun PhotoNavigation() {
         }
         composable(
             PhotoScreens.DetailsScreen.name + "/{photo}",
-            arguments = listOf(navArgument(name = "photo") {type = NavType.StringType})
+            arguments = listOf(navArgument(name = "photo") {type = NavType.IntType})
         ) {
             backStackEntry ->
                 DetailsScreen(
                     navController = navController,
-                    backStackEntry.arguments?.getString("photo")
+                    backStackEntry.arguments?.getInt("photo")
                 )
         }
     }

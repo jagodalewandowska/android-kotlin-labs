@@ -24,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import utp.edu.lab9.model.Photo
 import utp.edu.lab9.navigation.PhotoNavigation
 import utp.edu.lab9.ui.theme.Lab9Theme
 
@@ -34,30 +35,6 @@ class MainActivity : ComponentActivity() {
             Lab9Theme {
                 PhotoNavigation()
             }
-        }
-    }
-}
-
-@Composable
-fun PhotoRow(photo: String, onItemClick:(String) -> Unit = {}) {
-    Card (
-        modifier = Modifier
-            .padding(4.dp)
-            .fillMaxWidth()
-            .height(130.dp)
-            .clickable {
-                onItemClick(photo)
-            },
-        shape = RoundedCornerShape(corner = CornerSize(16.dp)), elevation = 6.dp
-    ) {
-        Row(verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Start) {
-            Surface(modifier = Modifier
-                .padding(12.dp)
-                .size(100.dp), shape = RectangleShape) {
-                    Icon(imageVector = Icons.Default.AccountBox, contentDescription = "Photo image")
-                }
-            Text(text = photo)
         }
     }
 }
