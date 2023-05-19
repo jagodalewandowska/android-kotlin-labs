@@ -41,10 +41,11 @@ import utp.edu.lab9.widgets.PhotoRow
 @SuppressLint("UnusedMateralScaffoldPaddingParameter")
 @Composable
 fun DetailsScreen(navController: NavController, photoId: Int?) {
+    val myRed = Color(0xff830e21);
     val newPhotoList = getPhotos().filter{photo -> photo.id == photoId}
     Scaffold(
         topBar = {
-            TopAppBar(backgroundColor = Color.LightGray, elevation = 5.dp) {
+            TopAppBar(backgroundColor = myRed, elevation = 5.dp) {
                Row(horizontalArrangement = Arrangement.Start) {
                    Icon(imageVector = Icons.Default.ArrowBack,
                        contentDescription = "Arrow Back",
@@ -52,7 +53,8 @@ fun DetailsScreen(navController: NavController, photoId: Int?) {
                            navController.popBackStack()
                        })
                    Spacer(modifier = Modifier.width(50.dp))
-                   Text(text = "Photos!")
+                   Text(text = "Zdjęcia", style = MaterialTheme.typography.h6,
+                       color = Color.White)
                }
             }
         },
@@ -73,7 +75,7 @@ fun DetailsScreen(navController: NavController, photoId: Int?) {
                    Text(text = newPhotoList[0].title, style = MaterialTheme.typography.h5)
                    Spacer(modifier = Modifier.height(8.dp))
                    Divider()
-                   Text(text = "Photo Images")
+                   Text(text = "Galeria zdjęć")
                    HorizontalScrollableImageView(newPhotoList)
                }
            }
