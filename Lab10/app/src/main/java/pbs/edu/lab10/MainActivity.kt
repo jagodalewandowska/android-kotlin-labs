@@ -11,6 +11,7 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import pbs.edu.lab10.data.NotesDataSource
 import pbs.edu.lab10.model.Note
 import pbs.edu.lab10.screen.NoteScreen
 import pbs.edu.lab10.ui.theme.Lab10Theme
