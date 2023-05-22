@@ -89,8 +89,10 @@ fun PhotoRow(photo: Photo = getPhotos()[0], onItemClick:(String) -> Unit = {}) {
                 Image(painter = painter, contentDescription = "Photo Poster")
             }
             Column(modifier = Modifier.padding(4.dp)) {
+                val myRed = Color(0xff830e21);
                 Text(text = photo.title, style = MaterialTheme.typography.h6)
-                Text(text = "Director: ${photo.director}", style = MaterialTheme.typography.caption)
+                Text(text = "Autor zdjęcia: ${photo.author}", style = MaterialTheme.typography.caption)
+                Divider(modifier = Modifier.padding(1.dp))
                 AnimatedVisibility(visible = expanded, enter = slideInVertically
                 {
                     with(density) {-40.dp.roundToPx() }
@@ -103,22 +105,24 @@ fun PhotoRow(photo: Photo = getPhotos()[0], onItemClick:(String) -> Unit = {}) {
                     Column {
                         Text(buildAnnotatedString {
                             withStyle(style = SpanStyle(color = Color.DarkGray, fontSize = 13.sp)) {
-                                append("Plot: ")
+                                append("Miejsce: ")
                             }
-                            withStyle(style = SpanStyle(color = Color.Magenta,
+                            withStyle(style = SpanStyle(color = myRed,
                                 fontSize = 13.sp,
                                 fontWeight = FontWeight.ExtraBold)) {
-                                append(photo.plot)
+                                append(photo.place)
                             }
-                            withStyle(style = SpanStyle(color = Color.Blue,
+                        }, modifier = Modifier.padding(2.dp))
+                        Text(buildAnnotatedString {
+                            withStyle(style = SpanStyle(color = Color.DarkGray, fontSize = 13.sp)) {
+                                append("Opis: ")
+                            }
+                            withStyle(style = SpanStyle(color = Color.Black,
                                 fontSize = 13.sp,
-                                fontWeight = FontWeight.Normal)) {
-                                append("\n Mobile Lab9")
+                                fontWeight = FontWeight.ExtraBold)) {
+                                append(photo.description)
                             }
-                        }, modifier = Modifier.padding(6.dp))
-                        Divider(modifier = Modifier.padding(3.dp))
-                        Text(text = "Director: ${photo.director}", style = MaterialTheme.typography.caption)
-                        Text(text = "Actors: ${photo.actors}", style = MaterialTheme.typography.caption)
+                        }, modifier = Modifier.padding(2.dp))
                     }
                 }
                 Icon(imageVector = if(expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown, contentDescription = "Down Arrow",
