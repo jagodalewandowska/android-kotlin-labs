@@ -113,7 +113,7 @@ fun NoteRow(
     ) {
         Column(
             modifier
-                .clickable { }
+                .clickable {onNoteClicked(note)}
                 .padding(horizontal = 14.dp, vertical = 6.dp)
         ) {
             Text(text = note.title, style = MaterialTheme.typography.subtitle2)
