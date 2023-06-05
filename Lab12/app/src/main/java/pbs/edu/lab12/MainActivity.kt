@@ -8,6 +8,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -24,8 +25,8 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     color = MaterialTheme.colors.background
                 ) {
-                    val noteViewModel:NoteViewModel by viewModels()
-                    NotesApp(noteViewModel=noteViewModel)
+                    val noteViewModel = viewModel<NoteViewModel>()
+                    NotesApp(noteViewModel)
                 }
             }
         }
@@ -35,7 +36,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun NotesApp(noteViewModel: NoteViewModel= viewModel())
 {
-    val notesList = noteViewModel.getAllNotes()
+    val notesList = noteViewModel.noteList.collectAsState().value
     NoteScreen(notes = notesList,
         onAddNotes = {
             noteViewModel.addNote(it)
@@ -45,18 +46,9 @@ fun NotesApp(noteViewModel: NoteViewModel= viewModel())
         })
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     Lab12Theme {
-        Greeting("Android")
     }
 }

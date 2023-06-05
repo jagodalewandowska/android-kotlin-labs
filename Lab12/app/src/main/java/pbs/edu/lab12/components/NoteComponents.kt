@@ -26,8 +26,10 @@ fun NoteInputText(
     onItemAction: () -> Unit = {}
 ){
     val keyboardController = LocalSoftwareKeyboardController.current
-    TextField(value = text, onValueChange = onTextChange,
-    colors = TextFieldDefaults.textFieldColors(backgroundColor = Color.Transparent),
+    TextField(
+        value = text,
+        onValueChange = onTextChange,
+        colors = TextFieldDefaults.textFieldColors(backgroundColor = Color.Transparent),
         maxLines = maxLine,
         label = { Text(text = label) },
         keyboardOptions = KeyboardOptions.Default.copy(
@@ -47,9 +49,14 @@ fun NoteButton (
     onClick:() -> Unit,
     enabled: Boolean = true
 ) {
-    Button(onClick = onClick, shape = CircleShape,
-    enabled = enabled, modifier = modifier,
-    colors = ButtonDefaults.buttonColors(backgroundColor = Color.Yellow)) {
+    Button(
+        onClick = onClick,
+        shape = CircleShape,
+        enabled = enabled,
+        modifier = modifier,
+        colors = ButtonDefaults.buttonColors(backgroundColor = Color.Yellow)
+    )
+    {
         Text(text = text)
     }
 }
