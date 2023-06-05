@@ -28,6 +28,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import pbs.edu.lab12.data.NotesDataSource
 import pbs.edu.lab12.model.Note
+import pbs.edu.lab12.util.formatDate
 import java.time.format.DateTimeFormatter
 
 @Composable
@@ -49,7 +50,7 @@ fun NoteScreen (
     val context = LocalContext.current
 
     Column(modifier = Modifier.padding(6.dp)) {
-        TopAppBar(title = { Text(text = "Laboratorium 11") }, actions = {
+        TopAppBar(title = { Text(text = "Laboratorium 12") }, actions = {
             androidx.compose.material.Icon(
                 imageVector = Icons.Rounded.Notifications, contentDescription = "Icon"
             )
@@ -118,8 +119,8 @@ fun NoteRow(
         ) {
             Text(text = note.title, style = MaterialTheme.typography.subtitle2)
             Text(text = note.description, style = MaterialTheme.typography.subtitle1)
-            Text(text = note.entryDate.format(DateTimeFormatter.ofPattern("EEE, d MMM")),
-                style = MaterialTheme.typography.caption)
+            Text(text = formatDate(note.entryDate.time),
+            style = MaterialTheme.typography.caption)
         }
     }
 }
