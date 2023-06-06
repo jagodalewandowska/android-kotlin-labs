@@ -57,7 +57,8 @@ fun NoteScreen (
             Icon(
                 imageVector = Icons.Rounded.Notifications, contentDescription = "Icon"
             )
-        }, backgroundColor = Color(0xFF4CAF50))
+        }, backgroundColor = Color(0xFF0830e21),
+        contentColor = Color.White)
         // Content
         Column (
             modifier = Modifier.fillMaxWidth(),
@@ -66,7 +67,7 @@ fun NoteScreen (
             NoteInputText(
                 Modifier.padding(top = 9.dp, bottom = 8.dp),
                 text = title,
-                label = "Title",
+                label = "Tytuł",
                 onTextChange = {
                     if (it.all { char -> char.isLetter() || char.isWhitespace() })
                         title = it
@@ -75,13 +76,14 @@ fun NoteScreen (
             NoteInputText(
                 Modifier.padding(top = 9.dp, bottom = 8.dp),
                 text = description,
-                label = "Add a note",
+                label = "Dodaj notatkę",
                 onTextChange = {
                     if (it.all {char -> char.isLetter() || char.isWhitespace() })
                         description = it
                 })
 
-            NoteButton(text = "Save", onClick = {
+            NoteButton(text = "Zapisz",
+                onClick = {
                 if (title.isNotEmpty() && description.isNotEmpty()) {
                     onAddNotes(Note(title = title, description = description))
                     title = ""
@@ -113,7 +115,7 @@ fun NoteRow(
             .padding(4.dp)
             .clip(RoundedCornerShape(topEnd = 33.dp, bottomStart = 33.dp))
             .fillMaxWidth(),
-        color = Color(0xFF03A9F4), elevation = 6.dp
+        color = Color(0xFF0830e21), elevation = 6.dp
     ) {
         Column(
             modifier
@@ -121,9 +123,9 @@ fun NoteRow(
                 .padding(horizontal = 14.dp, vertical = 6.dp),
             horizontalAlignment = Alignment.Start
         ) {
-            Text(text = note.title, style = MaterialTheme.typography.subtitle2)
-            Text(text = note.description, style = MaterialTheme.typography.subtitle1)
-            Text(text = formatDate(note.entryDate.time),
+            Text(text = note.title, style = MaterialTheme.typography.subtitle2, color=Color.White)
+            Text(text = note.description, style = MaterialTheme.typography.subtitle1,  color=Color.White)
+            Text(text = formatDate(note.entryDate.time), color=Color.White,
             style = MaterialTheme.typography.caption)
         }
     }

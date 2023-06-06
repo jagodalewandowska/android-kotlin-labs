@@ -54,9 +54,10 @@ fun NoteButton (
         shape = CircleShape,
         enabled = enabled,
         modifier = modifier,
-        colors = ButtonDefaults.buttonColors(backgroundColor = Color.Yellow)
+        colors = ButtonDefaults.buttonColors(backgroundColor = Color.LightGray)
     )
     {
-        Text(text = text)
+        Text(text = text,
+        color=Color(0xFF0830e21))
     }
 }
