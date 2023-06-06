@@ -9,13 +9,18 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
+import dagger.hilt.android.AndroidEntryPoint
 import pbs.edu.lab12.screen.NoteScreen
 import pbs.edu.lab12.screen.NoteViewModel
 import pbs.edu.lab12.ui.theme.Lab12Theme
 
+
+@ExperimentalComposeUiApi
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +38,9 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@ExperimentalComposeUiApi
 @Composable
-fun NotesApp(noteViewModel: NoteViewModel= viewModel())
+fun NotesApp(noteViewModel: NoteViewModel)
 {
     val notesList = noteViewModel.noteList.collectAsState().value
     NoteScreen(notes = notesList,

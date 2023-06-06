@@ -12,6 +12,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
+import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -50,8 +51,10 @@ fun NoteScreen (
     val context = LocalContext.current
 
     Column(modifier = Modifier.padding(6.dp)) {
-        TopAppBar(title = { Text(text = "Laboratorium 12") }, actions = {
-            androidx.compose.material.Icon(
+        TopAppBar(
+            title = { Text(text = "Laboratorium 12") },
+            actions = {
+            Icon(
                 imageVector = Icons.Rounded.Notifications, contentDescription = "Icon"
             )
         }, backgroundColor = Color(0xFF4CAF50))
@@ -108,14 +111,15 @@ fun NoteRow(
     Surface(
         modifier
             .padding(4.dp)
-            .clip(RoundedCornerShape(topEnd = 33.dp, bottomEnd = 33.dp))
+            .clip(RoundedCornerShape(topEnd = 33.dp, bottomStart = 33.dp))
             .fillMaxWidth(),
         color = Color(0xFF03A9F4), elevation = 6.dp
     ) {
         Column(
             modifier
                 .clickable {onNoteClicked(note)}
-                .padding(horizontal = 14.dp, vertical = 6.dp)
+                .padding(horizontal = 14.dp, vertical = 6.dp),
+            horizontalAlignment = Alignment.Start
         ) {
             Text(text = note.title, style = MaterialTheme.typography.subtitle2)
             Text(text = note.description, style = MaterialTheme.typography.subtitle1)

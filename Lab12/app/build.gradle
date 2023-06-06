@@ -1,15 +1,18 @@
+
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
-    namespace 'pbs.edu.Lab12'
+    namespace 'pbs.edu.lab12'
     compileSdk 33
 
     defaultConfig {
         applicationId "pbs.edu.lab12"
-        minSdk 31
+        minSdk 29
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -47,43 +50,43 @@ android {
 }
 
 dependencies {
+    // Hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
 
-    implementation 'androidx.core:core-ktx:1.8.0'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'
-    implementation 'androidx.activity:activity-compose:1.5.1'
+    // Room
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+
+    // kapt
+    kapt("androidx.room:room-compiler:$room_version")
+    implementation "androidx.room:room-ktx:$room_version"
+
+    // Coroutines
+//    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
+//    implementation 'org.jetbrains.kotlinx.kotlinx-coroutines-android:1.6.4'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.4"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+
+    // Android core
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.6.0'
+//    implementation 'com.google.android.material-material:1.8.0'
+    implementation group: 'com.google.android.material', name: 'material', version: '1.1.0-alpha05'
     implementation "androidx.compose.ui:ui:$compose_version"
-    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"
-    implementation 'androidx.compose.material3:material3'
-
-    implementation platform('androidx.compose:compose-bom:2022.10.00')
-    implementation 'androidx.compose.ui:ui-graphics'
-    implementation 'androidx.compose.material3:material3'
-    implementation 'androidx.room:room-common:2.5.1'
-    implementation 'androidx.room:room-ktx:2.5.1'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation platform('androidx.compose:compose-bom:2022.10.00')
-    androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
-    debugImplementation 'androidx.compose.ui:ui-tooling'
-    debugImplementation 'androidx.compose.ui:ui-test-manifest'
-    implementation "androidx.navigation:navigation-compose:2.5.3"
-    implementation "io.coil-kt:coil-compose:2.2.2"
+    implementation "androidx.compose.material3:material3:1.1.0"
+    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'
+    implementation 'androidx.activity:activity-compose:1.6.1'
 
     testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
 
-    implementation group: 'javax.inject', name: 'javax.inject', version: '1'
-    implementation 'androidx.hilt:hilt-navigation-fragment:1.0.0'
-    implementation "com.google.dagger:hilt-android:2.39"
-
-    implementation 'androidx.lifecycle:lifecycle-extensions:$lifecycle_version'
-
-
-
-
+    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1"
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
 }
-//configurations {
-//    cleanedAnnotations
-//    compile.exclude group: 'org.jetbrains' , module:'annotations'
-//    compile.exclude group: 'com.intellij', module:'annotations'
-//    compile.exclude group: 'org.intellij', module:'annotations'
-//}
