@@ -49,7 +49,9 @@ fun NotesApp(noteViewModel: NoteViewModel)
                      },
         onRemoveNote = {
             noteViewModel.removeNote(it)
-        })
+        }
+        )
+
 }
 
 @Preview(showBackground = true)

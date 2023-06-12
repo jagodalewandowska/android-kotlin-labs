@@ -2,6 +2,7 @@ package pbs.edu.lab12.screen
 
 import NoteButton
 import NoteInputText
+import android.util.Log
 import androidx.compose.runtime.getValue
 import android.widget.Toast
 import androidx.compose.foundation.clickable
@@ -36,7 +37,7 @@ import java.time.format.DateTimeFormatter
 fun NoteScreen (
     notes: List<Note>,
     onAddNotes: (Note) -> Unit,
-    onRemoveNote: (Note) -> Unit
+    onRemoveNote: (Note) -> Unit,
     ) {
 
     var title by remember {
@@ -97,6 +98,7 @@ fun NoteScreen (
         LazyColumn {
             items(notes) { note ->
                 NoteRow(note = note, onNoteClicked = {
+                    Log.d("xxx", notes.count().toString())
                     onRemoveNote(note)
                 })
             }
